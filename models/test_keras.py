@@ -4,6 +4,10 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from matplotlib import pyplot as plt
 
+import matplotlib
+
+matplotlib.use('Agg')
+
 master_url_root = "https://raw.githubusercontent.com/numenta/NAB/master/data/"
 
 df_small_noise_url_suffix = "artificialNoAnomaly/art_daily_small_noise.csv"
