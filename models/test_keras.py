@@ -24,7 +24,7 @@ print(df_daily_jumpsup.head())
 
 fig, ax = plt.subplots()
 df_small_noise.plot(legend=False, ax=ax)
-plt.show()
+plt.show(block=True)
 
 fig, ax = plt.subplots()
 df_daily_jumpsup.plot(legend=False, ax=ax)
@@ -93,7 +93,7 @@ history = model.fit(
 plt.plot(history.history["loss"], label="Training Loss")
 plt.plot(history.history["val_loss"], label="Validation Loss")
 plt.legend()
-plt.show()
+plt.show(block=True)
 
 
 # DETECTING ANOMALY
@@ -104,7 +104,7 @@ train_mae_loss = np.mean(np.abs(x_train_pred - x_train), axis=1)
 plt.hist(train_mae_loss, bins=50)
 plt.xlabel("Train MAE loss")
 plt.ylabel("No of samples")
-plt.show()
+plt.show(block=True)
 
 # Get reconstruction loss threshold.
 threshold = np.max(train_mae_loss)
@@ -114,7 +114,7 @@ print("Reconstruction error threshold: ", threshold)
 # Checking how the first sequence is learnt
 plt.plot(x_train[0])
 plt.plot(x_train_pred[0])
-plt.show()
+plt.show(block=True)
 
 # Prepare Test data
 def normalize_test(values, mean, std):
@@ -126,7 +126,7 @@ def normalize_test(values, mean, std):
 df_test_value = (df_daily_jumpsup - training_mean) / training_std
 fig, ax = plt.subplots()
 df_test_value.plot(legend=False, ax=ax)
-plt.show()
+plt.show(block=True)
 
 # Create sequences from test values.
 x_test = create_sequences(df_test_value.values)
@@ -140,7 +140,7 @@ test_mae_loss = test_mae_loss.reshape((-1))
 plt.hist(test_mae_loss, bins=50)
 plt.xlabel("test MAE loss")
 plt.ylabel("No of samples")
-plt.show()
+plt.show(block=True)
 
 # Detect all the samples which are anomalies.
 anomalies = test_mae_loss > threshold
@@ -158,4 +158,4 @@ df_subset = df_daily_jumpsup.iloc[anomalous_data_indices]
 fig, ax = plt.subplots()
 df_daily_jumpsup.plot(legend=False, ax=ax)
 df_subset.plot(legend=False, ax=ax, color="r")
-plt.show()
+plt.show(block=True)
