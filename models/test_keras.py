@@ -28,7 +28,7 @@ plt.show(block=True)
 
 fig, ax = plt.subplots()
 df_daily_jumpsup.plot(legend=False, ax=ax)
-plt.show()
+plt.show(block=True)
 
 # Normalize and save the mean and std we get,
 # for normalizing test data.
