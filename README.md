@@ -1,5 +1,4 @@
-# SDAD
-Streaming Data - Anomaly Detection
+# Streaming Data - Anomaly Detection
 
 ## Project Goal
 Deliver a user interface with real time anomaly detection on time series data from various streaming sources (IoT sensors, social media, monitoring systems, market data, …). The input time series are expected to be multivariate and non stationary with more or less noise. 
@@ -19,7 +18,7 @@ Streaming Environmental data API (https://data.gov.sg/dataset?q=&res_format=API&
 ## Baseline 
 NAB framework provides a leaderboard and benchmark models as a baseline (https://arxiv.org/pdf/1510.03336v4.pdf ).
 
-## model architecture 
+## Model architecture 
 For the first iterations, the model architecture will be based on an auto-encoder model with a clustering of the reconstructed error outliers (i.e. anomalies). Later, the representation learning model is expected to evolve towards a transformer architecture.   
 
 ## Output
