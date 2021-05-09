@@ -26,3 +26,9 @@ A web interface where users can visualise anomaly advanced analytics (e.g. clust
 
 ## Stretch goal
 Implement a self explainable neural network architecture for real time explainability on the detected anomalies.
+
+https://medium.com/mlearning-ai/transformer-implementation-for-time-series-forecasting-a9db2db5c820
+
+Why use a Transformer ?
+LSTMs process tokens sequentially, as shown above. This architecture maintains a hidden state that is updated with every new input token, representing the entire sequence it has seen. Theoretically, very important information can propagate over infinitely long sequences. However, in practice, this it not the case. Due to the vanishing gradient problem, the LSTM will eventually forget earlier tokens.
+In comparison, Transformers retain direct connections to all previous timestamps, allowing information to propagate over much longer sequences. However, this entails a new challenge: the model will be directly connected to an exploding amount of input. In order to filter the important from the unimportant, Transformers use an algorithm called self-attention.
